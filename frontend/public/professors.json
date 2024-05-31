@@ -1,0 +1,113 @@
+[
+  {
+    "id": 1,
+    "name": "Professor A",
+    "courses": [101, 102],
+    "ratings": [
+      {
+        "knowledge": 5,
+        "preparation": 4,
+        "helpfulness": 5,
+        "comments": [
+          {
+            "id": 1,
+            "comment": "Excellent teacher"
+          },
+          { "id": 2, "comment": "Very helpful and approachable" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Professor B",
+    "courses": [103, 104],
+    "ratings": [
+      {
+        "knowledge": 3,
+        "preparation": 5,
+        "helpfulness": 4,
+        "comments": [
+          {
+            "id": 1,
+            "comment": "Well-prepared and knowledgeable"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Professor A",
+    "courses": [101, 102],
+    "ratings": [
+      {
+        "knowledge": 5,
+        "preparation": 4,
+        "helpfulness": 5,
+        "comments": [
+          {
+            "id": 1,
+            "comment": "Excellent teacher"
+          },
+          { "id": 2, "comment": "Very helpful and approachable" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Professor B",
+    "courses": [103, 104],
+    "ratings": [
+      {
+        "knowledge": 3,
+        "preparation": 5,
+        "helpfulness": 4,
+        "comments": [
+          {
+            "id": 1,
+            "comment": "Well-prepared and knowledgeable"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Professor A",
+    "courses": [101, 102],
+    "ratings": [
+      {
+        "knowledge": 5,
+        "preparation": 4,
+        "helpfulness": 5,
+        "comments": [
+          {
+            "id": 1,
+            "comment": "Excellent teacher"
+          },
+          { "id": 2, "comment": "Very helpful and approachable" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Professor B",
+    "courses": [103, 104],
+    "ratings": [
+      {
+        "knowledge": 3,
+        "preparation": 5,
+        "helpfulness": 4,
+        "comments": [
+          {
+            "id": 1,
+            "comment": "Well-prepared and knowledgeable"
+          }
+        ]
+      }
+    ]
+  }
+]
