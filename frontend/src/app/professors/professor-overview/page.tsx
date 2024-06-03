@@ -1,21 +1,12 @@
-import { promises as fs } from "fs";
-import { Professor } from "src/lib/zod-schemas";
 import ProfessorCard from "~/components/cards/professor-card";
 import { Input } from "~/components/ui/input";
-
-export async function fetchProfessors(): Promise<Professor[]> {
-  const file = await fs.readFile(
-    process.cwd() + "/public/professors.json",
-    "utf-8",
-  );
-  const professors = Professor.array().parse(JSON.parse(file));
-  return professors;
-}
+import type { Professor } from "~/lib/zod-schemas";
+import { fetchProfessors } from "~/server/db/queries";
 
 export default async function ProfessorOverview() {
   const professors: Professor[] = await fetchProfessors();
   return (
-    <div className="container mx-auto my-auto">
+    <div className="min-h-auto container mx-auto my-auto">
       <div className="pb-10 text-[64px] ">
         All Professors
         <Input type="search" placeholder="Search" />

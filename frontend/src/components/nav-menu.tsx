@@ -11,9 +11,9 @@ import { navigationMenuTriggerStyle } from "./ui/navigation-menu";
 
 export default function NavMenu() {
   return (
-    <main className="flex flex-col items-center justify-center bg-white ">
+    <main className="flex items-center justify-center overflow-auto bg-white ">
       <NavigationMenu>
-        <NavigationMenuList className="flex justify-around px-12">
+        <NavigationMenuList className="flex flex-col justify-around px-12 md:flex-row">
           <NavigationMenuItem>
             <Link href="/courses/courses-overview" legacyBehavior passHref>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>

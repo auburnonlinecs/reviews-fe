@@ -1,17 +1,7 @@
-import { promises as fs } from "fs";
-import { Course } from "src/lib/zod-schemas";
 import CourseCard from "~/components/cards/course-card";
 import { Input } from "~/components/ui/input";
-
-export async function fetchCourses(): Promise<Course[]> {
-  const file = await fs.readFile(
-    process.cwd() + "/public/courses.json",
-    "utf-8",
-  );
-
-  const courses: Course[] = Course.array().parse(JSON.parse(file));
-  return courses;
-}
+import type { Course } from "~/lib/zod-schemas";
+import { fetchCourses } from "~/server/db/queries";
 
 export default async function CoursesOverview() {
   const courses: Course[] = await fetchCourses();

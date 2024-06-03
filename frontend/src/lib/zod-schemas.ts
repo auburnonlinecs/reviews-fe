@@ -8,28 +8,31 @@ export const Course = z.object({
   value: z.number(),
   hours_per_week: z.number(),
   average_grade: z.string(),
-  professors: z.number().array(),
 });
 
-export const Comments = z.object({
-  id: z.number(),
-  comment: z.string(),
-});
 export const Ratings = z.object({
+  id: z.number(),
+  overall: z.number(),
   knowledge: z.number(),
   preparation: z.number(),
   helpfulness: z.number(),
-  comments: Comments.array(),
+  professor: z.number(),
+  comment: z.string().nullable(),
 });
 
 export const Professor = z.object({
   id: z.number(),
   name: z.string(),
-  courses: z.number().array(),
-  ratings: Ratings.array(),
+});
+
+export const CourseProfessor = z.object({
+  course_id: z.number(),
+  professor_id: z.number(),
+  professor: Professor,
+  course: Course,
 });
 
 export type Course = z.infer<typeof Course>;
-export type Comments = z.infer<typeof Comments>;
 export type Ratings = z.infer<typeof Ratings>;
 export type Professor = z.infer<typeof Professor>;
+export type CourseProfessor = z.infer<typeof CourseProfessor>;
