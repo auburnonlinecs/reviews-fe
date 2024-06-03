@@ -2,6 +2,7 @@ import "~/styles/globals.css";
 
 import { GeistSans } from "geist/font/sans";
 import Header from "~/components/header";
+import Footer from "~/components/footer";
 
 export const metadata = {
   title: "AUonlineCS",
@@ -19,6 +20,7 @@ export default function RootLayout({
       <body>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

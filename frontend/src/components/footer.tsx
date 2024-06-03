@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import NavMenu from "./nav-menu";
 import { Button } from "./ui/button";
 import {
@@ -8,12 +7,10 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 
-export default function Header() {
+export default function Footer() {
   return (
     <div className="flex items-center justify-between pb-5 pt-5">
-      <Link href="/" legacyBehavior passHref>
-        <div className="cursor-pointer px-5 text-[30px]">AUonlineCS</div>
-      </Link>
+      <div className="px-5 text-[30px]">AUonlineCS</div>
       <div className="flex justify-end">
         <div className="hidden items-center justify-around px-5 md:flex">
           <NavMenu />
