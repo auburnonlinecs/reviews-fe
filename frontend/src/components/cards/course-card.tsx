@@ -1,32 +1,12 @@
 import Link from "next/link";
 import { ratingToStars } from "~/lib/ratings-to-stars";
-import type { Course, Ratings } from "~/lib/zod-schemas";
+import type { Course } from "~/lib/zod-schemas";
 import { Card, CardContent, CardHeader } from "../ui/card";
-import { fetchCoursesAndProfessors, fetchRatings } from "~/server/db/queries";
+import { fetchCourses } from "~/server/db/queries";
 
 export default async function CourseCard(props: { course: Course }) {
-  const map = await fetchCoursesAndProfessors();
-  const profName = Object.entries(map)
-    .filter(([courseId]) => courseId === props.course.id.toString())
-    .map(([courseId, { professor }]) => (
-      <div key={courseId} className="col-start-1 text-gray-500">
-        {professor.name}
-      </div>
-    ));
+  const courses: Course[] = await fetchCourses();
 
-  const prof = Object.entries(map)
-    .filter(([courseId]) => courseId === props.course.id.toString())
-    .flatMap(([_, { professor }]) => professor.id);
-  if (prof[0] == undefined) {
-    throw new Error();
-  }
-  const ratings: Ratings[] = await fetchRatings(prof[0]);
-  const sumRatings = ratings.reduce((acc, rating) => {
-    acc.overall += rating.overall;
-    return acc;
-  });
-  const totalOverall = ratings.length;
-  const avgOverall = sumRatings.overall / totalOverall;
   return (
     <Link href={`/courses/${props.course.id}`}>
       <Card className="h-auto w-auto  ">

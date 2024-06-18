@@ -1,16 +1,23 @@
 import { z } from "zod";
 
-export const Course = z.object({
-  id: z.number(),
-  course_id: z.string(),
-  name: z.string(),
+export const AvgMetrics = z.object({
   difficulty: z.number(),
   value: z.number(),
   hours_per_week: z.number(),
   average_grade: z.string(),
 });
 
-export const Ratings = z.object({
+export const CourseSchema: z.ZodSchema = z.lazy(() =>
+  z.object({
+    id: z.number(),
+    course_id: z.string(),
+    name: z.string(),
+    professors: ProfessorSchema,
+    courseMetrics: AvgMetrics,
+  }),
+);
+
+export const ProfessorReviews = z.object({
   id: z.number(),
   overall: z.number(),
   knowledge: z.number(),
@@ -20,19 +27,21 @@ export const Ratings = z.object({
   comment: z.string().nullable(),
 });
 
-export const Professor = z.object({
-  id: z.number(),
-  name: z.string(),
-});
+export const ProfessorSchema: z.ZodSchema = z.lazy(() =>
+  z.object({
+    id: z.number(),
+    name: z.string(),
+    courses: CourseSchema,
+    reviews: ProfessorReviews,
+  }),
+);
 
-export const CourseProfessor = z.object({
-  course_id: z.number(),
-  professor_id: z.number(),
-  professor: Professor,
-  course: Course,
-});
+export const CourseArraySchema = z.array(CourseSchema);
+export const ProfessorArraySchema = z.array(ProfessorSchema);
 
-export type Course = z.infer<typeof Course>;
-export type Ratings = z.infer<typeof Ratings>;
-export type Professor = z.infer<typeof Professor>;
-export type CourseProfessor = z.infer<typeof CourseProfessor>;
+export type ProfessorArray = z.infer<typeof ProfessorArraySchema>;
+export type CourseArray = z.infer<typeof CourseArraySchema>;
+export type Course = z.infer<typeof CourseSchema>;
+export type ProfessorReviews = z.infer<typeof ProfessorReviews>;
+export type Professor = z.infer<typeof ProfessorSchema>;
+export type AvgMetrics = z.infer<typeof AvgMetrics>;
