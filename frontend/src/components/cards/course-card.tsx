@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { ratingToStars } from "~/lib/ratings-to-stars";
-import type { Course } from "~/lib/zod-schemas";
+import type { Course, CourseArray } from "~/lib/zod-schemas";
 import { Card, CardContent, CardHeader } from "../ui/card";
 import { fetchCourses } from "~/server/db/queries";
 
 export default async function CourseCard(props: { course: Course }) {
-  const courses: Course[] = await fetchCourses();
+  const courses: CourseArray = await fetchCourses();
+
+   
 
   return (
     <Link href={`/courses/${props.course.id}`}>
@@ -17,7 +19,7 @@ export default async function CourseCard(props: { course: Course }) {
         <CardContent className="m-2 grid grid-cols-4">
           <div className="col-start-1 pb-2">Difficulty:</div>
           <div className="col-start-3">
-            {ratingToStars(props.course.difficulty)}
+            {ratingToStars(courses.flatMap())}
           </div>
           <div className="col-start-1 pb-2">Value: </div>
           <div className="col-start-3">{ratingToStars(props.course.value)}</div>

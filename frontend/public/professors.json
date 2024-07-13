@@ -1,0 +1,21 @@
+{
+"professors": [
+  {
+    "professorId": 0,
+    "name": "string",
+    "courses": [
+      {
+        "courseId": 0,
+        "courseCode": "string",
+        "title": "string"
+      }
+    ],
+    "averageMetrics": {
+      "overall": 5,
+      "knowledge": 5,
+      "preparation": 5,
+      "helpfulness": 5
+    }
+  }
+]
+}
