@@ -1,21 +1,23 @@
 import CourseCard from "~/components/cards/course-card";
 import { Input } from "~/components/ui/input";
-import type { Course, CourseArray } from "~/lib/zod-schemas";
 import { fetchCourses } from "~/server/db/queries";
 
 export default async function CoursesOverview() {
-  const courses: CourseArray = await fetchCourses();
+  const data = await fetchCourses();
   return (
     <div className="container mx-auto my-auto sm:flex sm:flex-col sm:justify-center">
       <div className="pb-10 text-[64px] ">
         All Courses
         <Input type="search" placeholder="Search" />
       </div>
-      <div className="gap-4 sm:flex sm:flex-col sm:justify-items-center md:grid md:grid-cols-2 lg:grid-cols-3">
-        {courses.map((course) => (
-          <CourseCard key={course.id} course={course} />
-        ))}
-      </div>
+      {Object.values(data).map((course) => (
+        <div
+          key={course.courseId}
+          className="gap-4 sm:flex sm:flex-col sm:justify-items-center md:grid md:grid-cols-2 lg:grid-cols-3"
+        >
+          <CourseCard course={course} />
+        </div>
+      ))}
     </div>
   );
 }

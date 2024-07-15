@@ -1,42 +1,36 @@
 import { z } from "zod";
-import { courses } from "~/server/db/schema";
 
-export const AvgMetrics = z.object({
+export const AverageMetrics = z.object({
   difficulty: z.number(),
   value: z.number(),
-  hours_per_week: z.number(),
-  average_grade: z.string(),
+  hoursPerWeek: z.number(),
+  averageGrade: z.string(),
 });
 
-export const CourseSchema = z.lazy(() =>
-  z.object({
-    id: z.number(),
-    course_id: z.string(),
-    name: z.string(),
-    professors: ProfSchema,
-    courseMetrics: AvgMetrics,
-  }),
-);
-
 export const ProfessorReviews = z.object({
-  id: z.number(),
   overall: z.number(),
   knowledge: z.number(),
   preparation: z.number(),
   helpfulness: z.number(),
   professor: z.number(),
-  comment: z.string().nullable(),
 });
 
 export const ProfSchema = z.object({
-  id: z.number(),
+  professorId: z.number(),
   name: z.string(),
   reviews: ProfessorReviews,
 });
 
+export const CourseSchema = z.object({
+  courseId: z.string(),
+  name: z.string(),
+  professors: ProfSchema,
+  courseMetrics: AverageMetrics,
+});
+
 export const ProfessorSchema = ProfSchema.extend({
-  courses: CourseSchema
-})
+  courses: CourseSchema,
+});
 
 export const CourseArraySchema = z.array(CourseSchema);
 export const ProfessorArraySchema = z.array(ProfessorSchema);
