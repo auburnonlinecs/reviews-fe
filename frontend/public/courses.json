@@ -8,7 +8,7 @@
 				{
 					"professorId": 0,
 					"name": "string",
-					"overallAverage": 0
+					"overallAverage": 2
 				}
 			],
 			"averageMetrics": {
@@ -26,7 +26,7 @@
 				{
 					"professorId": 0,
 					"name": "string",
-					"overallAverage": 0
+					"overallAverage": 4
 				}
 			],
 			"averageMetrics": {

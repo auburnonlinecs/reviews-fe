@@ -10,14 +10,20 @@ export default async function CoursesOverview() {
         All Courses
         <Input type="search" placeholder="Search" />
       </div>
-      {Object.values(data).map((course) => (
-        <div
-          key={course.courseId}
-          className="gap-4 sm:flex sm:flex-col sm:justify-items-center md:grid md:grid-cols-2 lg:grid-cols-3"
-        >
-          <CourseCard course={course} />
-        </div>
-      ))}
+      <div className="gap-4 sm:flex sm:flex-col sm:justify-items-center md:grid md:grid-cols-2 lg:grid-cols-3">
+        {Object.values(data.courses).flatMap((course) =>
+          course.professors.map((professor) => (
+            <CourseCard
+              key={course.courseId}
+              courseId={course.courseId}
+              title={course.title}
+              professors={professor}
+              avgMetrics={course.averageMetrics}
+            />
+          )),
+        )}
+        ,
+      </div>
     </div>
   );
 }
