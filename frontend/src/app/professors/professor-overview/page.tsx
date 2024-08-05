@@ -4,10 +4,6 @@ import { fetchProfessors } from "~/server/db/queries";
 
 export default async function ProfessorOverview() {
   const data = await fetchProfessors();
-  let professors = [];
-  if (data) {
-    professors = data;
-  }
   return (
     <>
       <div className="min-h-auto container mx-auto my-auto">
@@ -16,9 +12,18 @@ export default async function ProfessorOverview() {
           <Input type="search" placeholder="Search" />
         </div>
         <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {professors.map((professor) => (
-            <ProfessorCard key={professor.id} professor={professor} />
-          ))}
+          {Object.values(data.professors).flatMap((professor) =>
+            professor.courses.map((course) => (
+              <ProfessorCard
+                key={professor.professorId}
+                professorId={professor.professorId}
+                profName={professor.name}
+                courses={course}
+                profReviews={professor.averageMetrics}
+              />
+            )),
+          )}
+          ,
         </div>
       </div>
     </>

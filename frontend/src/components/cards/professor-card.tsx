@@ -1,32 +1,41 @@
-import type { Professor } from "~/lib/zod-schemas";
-import { Card, CardContent, CardHeader } from "../ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 
 import Link from "next/link";
 import { ratingToStars } from "~/lib/ratings-to-stars";
 import React from "react";
+import { type ProfCourseSchema, type ProfessorReviews } from "~/lib/zod-schema";
 
-export default async function ProfessorCard(props: { professor: Professor }) {
+export default async function ProfessorCard(props: {
+  professorId: number;
+  profName: string;
+  courses: ProfCourseSchema;
+  profReviews: ProfessorReviews;
+}) {
   return (
-    <Link href={`/professors/${props.professor.id}`}>
+    <Link href={`/professors/${props.professorId}`}>
       <Card className="h-auto w-auto">
         <CardHeader>
-          <div className="text-[26px]"> {props.professor.name}</div>
+          <CardTitle>{props.profName}</CardTitle>
         </CardHeader>
-        <CardContent className="m-2 grid h-auto w-auto grid-cols-4 grid-rows-5">
-          <div className="col-span-2 col-start-1 row-start-1 pb-2">
-            Helpfulness:
+        <CardContent>
+          <div className=" grid w-full items-center gap-4">
+            <div>Overall:</div>
+            <div className="flex">
+              Helpfulness:
+              {ratingToStars(props.profReviews.helpfulness)}
+            </div>
+            <div>Knowledge:</div>
+            <div className="col-start-3 row-start-3">
+              {ratingToStars(props.profReviews.knowledge)}
+            </div>
+            <div className="col-span-2 col-start-1 row-start-4  pb-2">
+              Preparation:
+            </div>
+            <div className="col-start-3 row-start-4">
+              {ratingToStars(props.profReviews.preparation)}
+            </div>
+            <div className="col-span-4 row-start-5">Courses Taught</div>
           </div>
-          <div className="col-start-3 row-start-1">
-            {ratingToStars(props.professor.reviews.helpfulness)}
-          </div>
-          <div className="col-span-2 col-start-1 row-start-2 pb-2">
-            Knowledge:
-          </div>
-          <div className="col-start-3 row-start-2"></div>
-          <div className="col-span-2 col-start-1 row-start-3  pb-2">
-            Preparation:
-          </div>
-          <div className="col-start-3 row-start-3"></div>
         </CardContent>
       </Card>
     </Link>
