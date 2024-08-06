@@ -29,7 +29,7 @@ export const CourseSchema = z.object({
   courseId: z.string(),
   courseCode: z.string(),
   title: z.string(),
-  professors: CourseProfSchema,
+  professors: CourseProfSchema.array(),
   courseMetrics: AvgMetrics,
 });
 
@@ -42,10 +42,10 @@ export const ProfessorSchema = ProfSchema.extend({
   courses: CourseSchema,
 });
 
-export const CourseArraySchema = z.array(CourseSchema);
+export const CourseArraySchema = z.array(ProfCourseSchema);
 export const ProfessorArraySchema = z.array(ProfessorSchema);
 
-export type ProfCourseSchema = z.infer<typeof ProfCourseSchema>;
+export type CourseArraySchema = z.infer<typeof CourseArraySchema>;
 export type CourseProfSchema = z.infer<typeof CourseProfSchema>;
 export type ProfessorArray = z.infer<typeof ProfessorArraySchema>;
 export type CourseArray = z.infer<typeof CourseArraySchema>;

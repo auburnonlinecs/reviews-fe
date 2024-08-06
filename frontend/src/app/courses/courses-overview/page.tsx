@@ -16,6 +16,7 @@ export default async function CoursesOverview() {
             <CourseCard
               key={course.courseId}
               courseId={course.courseId}
+              courseCode={course.courseCode}
               title={course.title}
               professors={professor}
               avgMetrics={course.averageMetrics}

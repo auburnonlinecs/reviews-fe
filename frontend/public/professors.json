@@ -2,29 +2,44 @@
 	"professors": [
 		{
 			"professorId": 0,
-			"name": "string",
+			"name": "Dr Professor",
 			"courses": [
 				{
-					"courseId": 0,
-					"courseCode": "string",
-					"title": "string"
+					"courseId": 1,
+					"courseCode": "CPSC-0001",
+					"title": "Course 1"
+				},
+				{
+					"courseId": 2,
+					"courseCode": "CPSC-0002",
+					"title": "Course 2"
 				}
 			],
 			"averageMetrics": {
-				"overall": 5,
-				"knowledge": 5,
-				"preparation": 5,
+				"overall": 3,
+				"knowledge": 1,
+				"preparation": 2,
 				"helpfulness": 5
 			}
 		},
 		{
 			"professorId": 1,
-			"name": "string",
+			"name": "Dr Professor",
 			"courses": [
 				{
 					"courseId": 1,
-					"courseCode": "string",
-					"title": "string"
+					"courseCode": "CPSC-0001",
+					"title": "Course 1"
+				},
+				{
+					"courseId": 2,
+					"courseCode": "CPSC-0002",
+					"title": "Course 2"
+				},
+				{
+					"courseId": 3,
+					"courseCode": "CPSC-0003",
+					"title": "Course 3"
 				}
 			],
 			"averageMetrics": {

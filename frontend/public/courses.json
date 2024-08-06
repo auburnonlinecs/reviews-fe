@@ -2,12 +2,12 @@
 	"courses": [
 		{
 			"courseId": 0,
-			"courseCode": "string",
-			"title": "string",
+			"courseCode": "CPSC-0000",
+			"title": "Course 0",
 			"professors": [
 				{
 					"professorId": 0,
-					"name": "string",
+					"name": "Dr Poopypants",
 					"overallAverage": 2
 				}
 			],
@@ -15,25 +15,25 @@
 				"difficulty": 5,
 				"value": 5,
 				"hoursPerWeek": 0,
-				"grade": "string"
+				"grade": "A"
 			}
 		},
 		{
 			"courseId": 1,
-			"courseCode": "string",
-			"title": "string",
+			"courseCode": "CPSC-0001",
+			"title": "Course 1",
 			"professors": [
 				{
 					"professorId": 0,
-					"name": "string",
+					"name": "Dr Strange",
 					"overallAverage": 4
 				}
 			],
 			"averageMetrics": {
 				"difficulty": 5,
 				"value": 5,
-				"hoursPerWeek": 0,
-				"grade": "string"
+				"hoursPerWeek": 39,
+				"grade": "B-"
 			}
 		}
 	]
