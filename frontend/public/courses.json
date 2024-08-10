@@ -1,0 +1,40 @@
+{
+	"courses": [
+		{
+			"courseId": 0,
+			"courseCode": "string",
+			"title": "string",
+			"professors": [
+				{
+					"professorId": 0,
+					"name": "string",
+					"overallAverage": 2
+				}
+			],
+			"averageMetrics": {
+				"difficulty": 5,
+				"value": 5,
+				"hoursPerWeek": 0,
+				"grade": "string"
+			}
+		},
+		{
+			"courseId": 1,
+			"courseCode": "string",
+			"title": "string",
+			"professors": [
+				{
+					"professorId": 0,
+					"name": "string",
+					"overallAverage": 4
+				}
+			],
+			"averageMetrics": {
+				"difficulty": 5,
+				"value": 5,
+				"hoursPerWeek": 0,
+				"grade": "string"
+			}
+		}
+	]
+}
